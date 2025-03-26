@@ -1,0 +1,172 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0d1b2a;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #14253d;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.login-btn {
+    background-color: #01b4e4;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #0297c8;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: url('https://image.tmdb.org/t/p/original/your-banner-image.jpg') no-repeat center center/cover;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Search Bar Styling */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    background: white;
+    border-radius: 25px;
+    padding: 10px;
+    margin: auto;
+}
+
+#search-bar {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 25px 0 0 25px;
+}
+
+#search-btn {
+    background-color: #01b4e4;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+}
+
+#search-btn:hover {
+    background-color: #0297c8;
+}
+
+/* Trending Movies Section */
+.trending-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px;
+}
+
+.movies-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+/* Movie Card Styling */
+.movie-card {
+    width: 180px;  /* Fixed width */
+    height: 320px; /* Fixed height */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Ensure all images have the same size */
+.movie-card img {
+    width: 160px; /* Uniform width */
+    height: 240px; /* Uniform height */
+    object-fit: cover; /* Ensures correct image scaling */
+    border-radius: 5px;
+}
+
+.movie-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    max-width: 100%;
+    white-space: normal;  /* Allows wrapping */
+    word-wrap: break-word;  /* Breaks long words */
+    overflow-wrap: break-word;
+    display: block;
+    line-height: 1.2; /* Keeps text compact */
+}
+.movie-rating {
+    font-size: 12px;
+    color: gold;
+    margin-top: 5px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Scrollbar Styling */
+.trending-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.trending-container::-webkit-scrollbar-thumb {
+    background: #01b4e4;
+    border-radius: 10px;
+}

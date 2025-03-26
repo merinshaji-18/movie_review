@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Movie Review Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">🎬 Join the Movie Legends</div>
+
+        <div class="quote-box">
+            <p id="movie-quote">"I'm the king of the world!" - Titanic</p>
+        </div>
+
+        <h2>Register</h2>
+        <form id="registerForm">
+            <input type="text" id="fullname" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Become a Movie Buff</button>
+        </form>
+
+        <p class="options">
+            Already a Member? <a href="login.html">Login Here</a>
+        </p>
+    </div>
+
+    <script>
+        const quotes = [
+            '"Keep your friends close, but your enemies closer." - The Godfather',
+            '"You talking to me?" - Taxi Driver',
+            '"To infinity and beyond!" - Toy Story',
+            '"It’s a trap!" - Star Wars',
+            '"This is Sparta!" - 300'
+        ];
+        
+        function changeQuote() {
+            const quoteElement = document.getElementById("movie-quote");
+            quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+        }
+        
+        setInterval(changeQuote, 4000);
+
+        document.getElementById("registerForm").addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const fullname = document.getElementById("fullname").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            const response = await fetch("http://localhost:5000/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ fullname, email, password, confirmPassword }),
+            });
+
+            const data = await response.json();
+            alert(data.message); // Show success or error message
+
+            if (data.success) {
+                window.location.href = "login.html"; // Redirect to movies page
+            }
+        });
+    </script>
+</body>
+</html>
